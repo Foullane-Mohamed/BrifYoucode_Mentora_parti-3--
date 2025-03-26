@@ -12,6 +12,7 @@ use App\Http\Controllers\API\V1\VideoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\V1\BadgeController;
 use App\Http\Controllers\API\V1\PaymentController;
+use App\Http\Controllers\API\V1\StatisticsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -95,6 +96,16 @@ Route::middleware('auth:sanctum')->prefix('V1')->group(function () {
     Route::get('/status/{status}', [PaymentController::class, 'getByStatus']);
     Route::get('/courses/{courseId}', [PaymentController::class, 'getByCourseId']);
     Route::get('/{id}', [PaymentController::class, 'show']);
+
+
+    Route::get('/dashboard', [StatisticsController::class, 'dashboard']);
+    Route::get('/courses', [StatisticsController::class, 'courseStats']);
+    Route::get('/categories', [StatisticsController::class, 'categoryStats']);
+    Route::get('/tags', [StatisticsController::class, 'tagStats']);
+    Route::get('/enrollments', [StatisticsController::class, 'enrollmentStats']);
+    Route::get('/revenue', [StatisticsController::class, 'revenueStats']);
+    Route::get('/users', [StatisticsController::class, 'userStats']);
+    Route::get('/badges', [StatisticsController::class, 'badgeStats']);
 });
 
 // Public routes
