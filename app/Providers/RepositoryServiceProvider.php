@@ -8,6 +8,7 @@ use App\Repositories\Eloquent\CategoryRepository;
 use App\Repositories\Eloquent\CourseRepository;
 use App\Repositories\Eloquent\EnrollmentRepository;
 use App\Repositories\Eloquent\MentorRepository;
+use App\Repositories\Eloquent\PaymentRepository;
 use App\Repositories\Eloquent\StudentRepository;
 use App\Repositories\Eloquent\SubCategoryRepository;
 use App\Repositories\Eloquent\TagRepository;
@@ -19,6 +20,7 @@ use App\Repositories\Interfaces\CourseRepositoryInterface;
 use App\Repositories\Interfaces\EloquentRepositoryInterface;
 use App\Repositories\Interfaces\EnrollmentRepositoryInterface;
 use App\Repositories\Interfaces\MentorRepositoryInterface;
+use App\Repositories\Interfaces\PaymentRepositoryInterface;
 use App\Repositories\Interfaces\StudentRepositoryInterface;
 use App\Repositories\Interfaces\SubCategoryRepositoryInterface;
 use App\Repositories\Interfaces\TagRepositoryInterface;
@@ -44,6 +46,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(VideoRepositoryInterface::class, VideoRepository::class);
         $this->app->bind(EnrollmentRepositoryInterface::class, EnrollmentRepository::class);
         $this->app->bind(BadgeRepositoryInterface::class, BadgeRepository::class);
+        $this->app->bind(PaymentRepositoryInterface::class, PaymentRepository::class);
     }
 
     /**

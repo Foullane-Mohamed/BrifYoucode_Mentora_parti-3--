@@ -11,7 +11,7 @@ use App\Http\Controllers\API\V1\TagController;
 use App\Http\Controllers\API\V1\VideoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\V1\BadgeController;
-
+use App\Http\Controllers\API\V1\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -86,6 +86,15 @@ Route::middleware('auth:sanctum')->prefix('V1')->group(function () {
     Route::post('badges/remove-from-student', [BadgeController::class, 'removeFromStudent']);
     Route::post('badges/remove-from-mentor', [BadgeController::class, 'removeFromMentor']);
     Route::apiResource('badges', BadgeController::class);
+
+    Route::get('/', [PaymentController::class, 'index']);
+    Route::get('/checkout', [PaymentController::class, 'checkout']);
+    Route::get('/success', [PaymentController::class, 'success']);
+    Route::get('/cancel', [PaymentController::class, 'cancel']);
+    Route::get('/history', [PaymentController::class, 'history']);
+    Route::get('/status/{status}', [PaymentController::class, 'getByStatus']);
+    Route::get('/courses/{courseId}', [PaymentController::class, 'getByCourseId']);
+    Route::get('/{id}', [PaymentController::class, 'show']);
 });
 
 // Public routes
